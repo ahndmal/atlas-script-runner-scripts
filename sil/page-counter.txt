@@ -1,0 +1,13 @@
+string [] excludedGroups = "confluence-administrators|employees";
+persistent number counter = 0;
+boolean countUserView = true;
+ 
+for(string group in excludedGroups) {
+    if(userInGroup(group, currentUser()) == true) {
+        countUserView = false;
+    }
+}
+ 
+if(countUserView == true) {
+    counter++;
+}
